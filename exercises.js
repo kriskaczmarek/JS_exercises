@@ -30,4 +30,40 @@ function sumNaturalNumbers(number) {
 	}
 	return number + sumNaturalNumbers(number - 1)
 }
-console.log(sumNaturalNumbers(10));
+//console.log(sumNaturalNumbers(10));
+
+//HOW TO ITERATE OVER OBJECT ELEMENTS, YOU SHOULD USE RECURSION INSTED OF LOOP's
+//WE WANT TO KNOWN A CHILDRENS NAME
+
+const family = {
+	name: "John",
+	children: [
+		{
+			name: "Jim",
+			children: [],
+		},
+		{
+			name: "Zoe",
+			children: [
+				{
+					name: "Kyle",
+					children: [],
+				},
+				{
+					name: "Sophia",
+					children: [],
+				},
+			],
+		},
+	],
+}
+function findEveryNameChildWithRecursion(tree) {
+	if (tree.children.length === 0) {
+		return
+	}
+	tree.children.forEach(child => {
+		console.log(child.name)
+		findEveryNameChildWithRecursion(child)
+	})
+}
+findEveryNameChildWithRecursion(family)
